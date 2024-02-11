@@ -79,28 +79,30 @@ public struct GoogleSignInButton: View {
         }
       case .standard, .wide:
         HStack(alignment: .center) {
-          ZStack {
-            RoundedRectangle(cornerRadius: googleCornerRadius)
-              .fill(
-                viewModel.state == .disabled ?
-                  .clear : viewModel.buttonStyle.colors.iconColor
-              )
-              .frame(
-                width: iconWidth - iconPadding,
-                height: iconWidth - iconPadding
-              )
-            Image.signInButtonImage
-          }
-          .padding(.leading, 1)
-          Text(viewModel.style.buttonText)
-            .fixedSize()
-            .padding(.trailing, textPadding)
-            .frame(
-              width: viewModel.style.widthForButtonText,
-              height: buttonHeight,
-              alignment: .leading
-            )
-          Spacer()
+            VStack(alignment: .center) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: googleCornerRadius)
+                        .fill(
+                            viewModel.state == .disabled ?
+                                .clear : viewModel.buttonStyle.colors.iconColor
+                        )
+                        .frame(
+                            width: iconWidth - iconPadding,
+                            height: iconWidth - iconPadding
+                        )
+                    Image.signInButtonImage
+                }
+                .padding(.leading, 1)
+                Text(viewModel.style.buttonText)
+                    .fixedSize()
+                    .padding(.trailing, textPadding)
+                    .frame(
+                        width: viewModel.style.widthForButtonText,
+                        height: buttonHeight,
+                        alignment: .leading
+                    )
+                Spacer()
+            }
         }
       }
     }
