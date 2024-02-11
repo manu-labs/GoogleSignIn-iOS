@@ -80,18 +80,7 @@ public struct GoogleSignInButton: View {
       case .standard, .wide:
           VStack(alignment: .center) {
               HStack(alignment: .center, spacing: 8) {
-                  ZStack {
-                      RoundedRectangle(cornerRadius: googleCornerRadius)
-                          .fill(
-                            viewModel.state == .disabled ?
-                                .clear : viewModel.buttonStyle.colors.iconColor
-                          )
-                          .frame(
-                            width: iconWidth - iconPadding,
-                            height: iconWidth - iconPadding
-                          )
-                      Image.signInButtonImage
-                  }
+                  Image.signInButtonImage
                   Text(viewModel.style.buttonText)
               }
           }
